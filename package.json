@@ -1,0 +1,52 @@
+{
+  "name": "autosort",
+  "displayName": "AutoSort — Automatic Workspace File Organizer",
+  "publisher": "QualitySushi",
+  "description": "Automatically organizes files in your workspace using simple rules defined in autosort.json or settings.json.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.84.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "workspaceContains:autosort.json",
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "AutoSort",
+      "properties": {
+        "autosort.rules": {
+          "type": "array",
+          "description": "Sorting rules for AutoSort if autosort.json is not present.",
+          "default": [],
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "destination": { "type": "string" }
+            },
+            "required": ["patterns", "destination"]
+          }
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.84.0",
+    "typescript": "^5.0.0"
+  }
+}
