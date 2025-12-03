@@ -4,6 +4,7 @@
   "publisher": "qualitysushi",
   "description": "Automatically organizes files in your workspace using simple rules defined in autosort.json or settings.json.",
   "version": "0.0.2",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.84.0"
   },
